@@ -52,7 +52,7 @@
     modprobe vboxguest failed  
     The log file /var/log/vboxadd-setup.log may contain further information.  
 ---
-Видим, что не устанавливаются kernel modules. Нужны kernel headers для нового ядра, а также в логе `/var/log/vboxadd-setup.log` видим ошибки из-за версии gcc, которая должна быть 9.3.0 для сборки нового ядра.
+Видим, что не устанавливаются kernel modules. Нужны kernel headers для нового ядра, а также в логе `/var/log/vboxadd-setup.log` видим ошибки из-за версии `gcc`, которая должна быть 9.3.0 для сборки нового ядра.
 
 При этом ядро в нашей системе
 
@@ -66,19 +66,31 @@
     
 #### Установим gcc версии 9.3.0 из исходников
 
+Установим необходимые пакеты для сборки
+    
     sudo yum -y install bzip2 wget gcc gcc-c++ gmp-devel mpfr-devel libmpc-devel make
-    mkdir gcc
-    cd gcc/
+    
+Скачаем исходники и распакуем их:    
+    
     wget http://mirror.linux-ia64.org/gnu/gcc/releases/gcc-9.3.0/gcc-9.3.0.tar.gz
     tar -xvf gcc-9.3.0.tar.gz
+    
+Перейдем в созданную директорию:
+
     cd gcc-9.3.0/
+    
+Соберем `gcc`:    
+    
     ./configure --enable-languages=c,c++ --disable-multilib
     make -j$(nroc)
     sudo make install
+    
+Проверим версию `gcc`:    
+    
     gcc --version
       gcc (GCC) 9.3.0  
       
-#### Перезагружаем машину через vagrant, видим корректное монтирование vbox shared folders      
+#### Перезагружаем машину через vagrant, видим корректное монтирование `vbox shared folders`
 
     vagrant reload  
     
@@ -87,5 +99,5 @@
     ==> centos7-002: Machine already provisioned. Run `vagrant provision` or use the `--provision`  
     ==> centos7-002: flag to force provisioning. Provisioners marked to run always will still run.  
     
-#### Done!    
+#### Готово!    
 
