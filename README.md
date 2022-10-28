@@ -76,7 +76,7 @@
     sudo yum remove kernel-headers
     sudo yum --enablerepo elrepo-kernel install kernel-ml-headers.x86_64 kernel-ml-devel.x86_64    
     
-#### Установим `gcc` версии 9.3.0 из исходников
+<h4 id=gcc> Установим `gcc` версии 9.3.0 из исходников</h4>
 
 Установим необходимые пакеты для сборки
     
@@ -143,7 +143,7 @@
     sudo yum install -y epel-release wget gcc flex bison elfutils-libelf-devel openssl-devel perl
 
 #### Установливаем `gcc` версии 9.3.0
-Процесс установки был подробно описан выше
+Процесс установки подробно описан [выше]([gcc])
 
 
 
