@@ -3,7 +3,14 @@
 
 ![](kernel_org.jpg)
 ---
-## Обновление ядра из репозитория
+## Содержание
+- <a href="#k1">Обновление ядра из репозитория</a>
+- <a href="#k2">Сборка ядра из исходников</a>
+
+---
+
+<h2 id=k1>Обновление ядра из репозитория</h2>
+
 #### Цели:
 - Обновить ядро из репозитория;
 - Смонтировать `virtualbox shared folders` при поднятии машины через `Vagrant`.
@@ -71,33 +78,33 @@
     uname -r
     6.0.4-1.el7.elrepo.x86_64
 
-#### Установим `Kernel headers` для ядра 6.0.4-1.el7.elrepo.x86_64
+#### Установливаем `Kernel headers` для ядра 6.0.4-1.el7.elrepo.x86_64
 
     sudo yum remove kernel-headers
     sudo yum --enablerepo elrepo-kernel install kernel-ml-headers.x86_64 kernel-ml-devel.x86_64    
     
-<h4 id=gcc> Установим `gcc` версии 9.3.0 из исходников</h4>
+<h4 id=gcc>Устанавливаем `gcc` версии 9.3.0 из исходников</h4>
 
-Установим необходимые пакеты для сборки
+Установливаем необходимые пакеты для сборки
     
     sudo yum -y install bzip2 wget gcc gcc-c++ gmp-devel mpfr-devel libmpc-devel make
     
-Скачаем исходники и распакуем их:    
+Скачиваем исходники и распакуем их:    
     
     wget http://mirror.linux-ia64.org/gnu/gcc/releases/gcc-9.3.0/gcc-9.3.0.tar.gz
     tar -xvf gcc-9.3.0.tar.gz
     
-Перейдем в созданную директорию:
+Перейходим в созданную директорию:
 
     cd gcc-9.3.0/
     
-Соберем `gcc`:    
+Собираем `gcc`:    
     
     ./configure --enable-languages=c,c++ --disable-multilib
     make -j$(nroc)
     sudo make install
     
-Проверим версию `gcc`:    
+Проверяем версию `gcc`:    
     
     gcc --version
       gcc (GCC) 9.3.0  
@@ -114,7 +121,9 @@
 #### Готово!    
 
 ---
-## Сборка ядра из исходников
+
+<h2 id=k2>Сборка ядра из исходников</h2>
+ 
 #### Цели:
 - Собрать ядро из исходников;
 - Смонтировать `virtualbox shared folders` при поднятии машины через `Vagrant`.
@@ -143,7 +152,9 @@
     sudo yum install -y epel-release wget gcc flex bison elfutils-libelf-devel openssl-devel perl
 
 #### Установливаем `gcc` версии 9.3.0
-Процесс установки подробно описан <a href="#gcc">выше</a>
+Процесс установки подробно описан <a href="#gcc">выше</a>.
+
+
 
 
 
