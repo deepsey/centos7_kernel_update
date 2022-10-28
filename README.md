@@ -149,10 +149,56 @@
 
 #### Установливаем необходимые пакеты для сборки ядра 
 
-    sudo yum install -y epel-release wget gcc flex bison elfutils-libelf-devel openssl-devel perl
+    sudo yum install -y epel-release  
+    sudo yum update
+    sudo yum install -y wget gcc flex bison elfutils-libelf-devel openssl-devel perl
 
 #### Установливаем `gcc` версии 9.3.0
 Процесс установки подробно описан <a href="#gcc">выше</a>.
+
+#### Собираем ядро 6.0.5
+Загружаем и распаковываем исходники ядра
+
+    wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.0.5.tar.xz  
+    tar -xf linux-6.0.5.tar.xz 
+    
+Копируем конфиг для сборки ядра    
+   
+    cp /vagrant/.config ~/linux-6.0.5
+    
+Переходим в папку с исходниками    
+
+    cd linux-6.0.5/
+    
+Собираем ядро
+ 
+    make oldconfig
+    make -j$(nproc)
+    sudo make modules_install
+    sudo make install
+    
+    
+Обновляем конфигурацию загрузчика:    
+    
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    
+Выбираем загрузку с новым ядром по-умолчанию:
+
+    sudo grub2-set-default 0
+    
+#### Перезагружаем машину, видим монтирование shared папки с новым ядром    
+
+    vagrant reload
+    uname -r
+    6.0.5
+    ls -a /vagrant
+    .  ..  .config  .vagrant  Vagrantfile
+    
+#### Готово!    
+    
+
+
+    
 
 
 
