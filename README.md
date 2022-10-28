@@ -138,7 +138,7 @@
 ---
 ### Решение задачи:
 
-#### Устанавливаем плагин `vagrant vbguest` на хостовой машине
+#### Устанавливаем плагин `vagrant-vbguest` на хостовой машине
 
     vagrant plugin install vagrant-vbguest --plugin-version 0.21
     
