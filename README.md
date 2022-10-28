@@ -73,7 +73,7 @@
     tar -xvf gcc-9.3.0.tar.gz
     cd gcc-9.3.0/
     ./configure --enable-languages=c,c++ --disable-multilib
-    make -j12
+    make -j$(nroc)
     sudo make install
     gcc --version
       gcc (GCC) 9.3.0  
