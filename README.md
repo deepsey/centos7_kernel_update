@@ -59,12 +59,12 @@
     uname -r
     6.0.4-1.el7.elrepo.x86_64
 
-#### Установим Kernel headers для ядра 6.0.4-1.el7.elrepo.x86_64
+#### Установим `Kernel headers` для ядра 6.0.4-1.el7.elrepo.x86_64
 
     sudo yum remove kernel-headers
     sudo yum --enablerepo elrepo-kernel install kernel-ml-headers.x86_64 kernel-ml-devel.x86_64    
     
-#### Установим gcc версии 9.3.0 из исходников
+#### Установим `gcc` версии 9.3.0 из исходников
 
 Установим необходимые пакеты для сборки
     
@@ -90,7 +90,7 @@
     gcc --version
       gcc (GCC) 9.3.0  
       
-#### Перезагружаем машину через vagrant, видим корректное монтирование `vbox shared folders`
+#### Перезагружаем машину через `vagrant`, видим корректное монтирование `vbox shared folders`
 
     vagrant reload  
     
