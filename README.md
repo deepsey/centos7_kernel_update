@@ -78,7 +78,7 @@
     uname -r
     6.0.4-1.el7.elrepo.x86_64
 
-#### Установливаем `Kernel headers` для ядра 6.0.4-1.el7.elrepo.x86_64
+#### Устанавливаем `Kernel headers` для ядра 6.0.4-1.el7.elrepo.x86_64
 
     sudo yum remove kernel-headers
     sudo yum --enablerepo elrepo-kernel install kernel-ml-headers.x86_64 kernel-ml-devel.x86_64    
