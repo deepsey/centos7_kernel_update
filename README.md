@@ -154,7 +154,7 @@
     sudo yum install -y wget gcc flex bison elfutils-libelf-devel openssl-devel perl
 
 #### Установливаем `gcc` версии 9.3.0
-Процесс установки подробно описан <a href="#gcc">выше</a>.
+Процесс установки подробно описан <a href=(https://github.com/deepsey/centos7_kernel_update/blob/main/README.md#%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%B0%D0%B2%D0%BB%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC-gcc-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8-930-%D0%B8%D0%B7-%D0%B8%D1%81%D1%85%D0%BE%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2)>выше</a>.
 
 #### Собираем ядро 6.0.5
 Загружаем и распаковываем исходники ядра
