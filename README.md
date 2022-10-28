@@ -143,7 +143,7 @@
     sudo yum install -y epel-release wget gcc flex bison elfutils-libelf-devel openssl-devel perl
 
 #### Установливаем `gcc` версии 9.3.0
-Процесс установки подробно описан [выше](gcc)
+Процесс установки подробно описан <a href="#gcc">выше</a>
 
 
 
