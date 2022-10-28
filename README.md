@@ -52,7 +52,12 @@
     modprobe vboxguest failed  
     The log file /var/log/vboxadd-setup.log may contain further information.  
 ---
-Видим, что не устанавливаются kernel modules. Нужны kernel headers для нового ядра, а также в логах ругань на версию gcc, которая должна быть 9.3.0.
+Видим, что не устанавливаются kernel modules. Нужны kernel headers для нового ядра, а также в логе `/var/log/vboxadd-setup.log` видим ошибки из-за версии gcc, которая должна быть 9.3.0 для сборки нового ядра.
+
+При этом ядро в нашей системе
+
+    uname -r
+    6.0.4-1.el7.elrepo.x86_64
 
 #### Установим Kernel headers для ядра 6.0.4-1.el7.elrepo.x86_64
 
